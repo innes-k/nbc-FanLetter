@@ -44,8 +44,8 @@ function App() {
         </div>
       </article>
       <article className="CommentsBox-container">
-        <section className="CommentsBox">
-          <div className="CommentsBox-inside">
+        <ul className="CommentsBox">
+          <li className="CommentsBox-inside">
             <div className="CommentsBox-profileImg">
               <img
                 src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg"
@@ -62,8 +62,8 @@ function App() {
                 sapiente.
               </div>
             </div>
-          </div>
-        </section>
+          </li>
+        </ul>
       </article>
     </>
   );
