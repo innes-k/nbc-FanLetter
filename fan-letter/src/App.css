@@ -1,0 +1,76 @@
+/* header */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5vh;
+
+  height: 30vh;
+  background-color: rgb(255, 220, 226);
+}
+
+.header > h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.header-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.header-btns > button {
+  width: 10vh;
+  font-size: 20px;
+}
+
+/* AddForm */
+.AddForm-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.AddForm {
+  background-color: skyblue;
+  font-size: 20px;
+  width: 500px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.AddForm-section {
+  display: flex;
+}
+
+.AddForm-section > span {
+  width: 100px;
+}
+
+.AddForm-section > input,
+textarea {
+  width: 80%;
+}
+
+.AddForm-section > textarea {
+  resize: none;
+  height: 80px;
+}
+
+.AddForm-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.AddForm-button > button {
+  font-size: 20px;
+}
+
+/* CommentsBox */
+.CommentsBox-container {
+}
