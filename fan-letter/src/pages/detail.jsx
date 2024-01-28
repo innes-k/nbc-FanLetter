@@ -11,7 +11,7 @@ function Detail() {
             <div className='detailBox-contents'>
             <header>
                 <div>
-                    <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg"></img>
+                    <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg" alt=''></img>
                     <span>Chad Graham</span>
                 </div>
                 <time>23. 11. 03. 오전 08:13:18</time>
