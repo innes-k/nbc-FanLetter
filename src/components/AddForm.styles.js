@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const StAddFormContainer = styled.article`
+export const Container = styled.article`
   display: flex;
   justify-content: center;
   margin-top: 20px;
 `;
 
-export const StAddFormCss = styled.div`
+export const Body = styled.div`
   background-color: skyBlue;
   font-size: 20px;
   width: 500px;
@@ -18,29 +18,29 @@ export const StAddFormCss = styled.div`
   gap: 2vh;
 `;
 
-export const StAddFormSection = styled.section`
+export const Section = styled.section`
   display: flex;
 `;
 
-export const StAddFormSpan = styled.span`
+export const Span = styled.span`
   width: 100px;
 `;
 
-export const StAddFormInput = styled.input`
+export const Input = styled.input`
   width: 80%;
 `;
 
-export const StAddFormTextarea = styled.textarea`
+export const Textarea = styled.textarea`
   width: 80%;
   resize: none;
   height: 80px;
 `;
 
-export const StAddFormAddSection = styled.section`
+export const ButtonSection = styled.section`
   display: flex;
   justify-content: flex-end;
 `;
 
-export const StAddFormAddSectionBtns = styled.button`
+export const AddButton = styled.button`
   font-size: 20px;
 `;
