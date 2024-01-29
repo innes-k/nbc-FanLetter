@@ -1,8 +1,8 @@
-import "./App.css";
-import "./reset.css";
+import "App.css";
+import "reset.css";
 import styled from "styled-components";
-import Header from "./components/Header.jsx";
-import AddForm from "./components/AddForm.jsx";
+import Header from "components/Header.jsx";
+import AddForm from "components/AddForm.jsx";
 
 function App() {
   return (
