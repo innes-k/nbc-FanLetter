@@ -29,19 +29,17 @@ const HeaderBtn = styled.button`
   font-size: 20px;
 `;
 
+const memberArr = ["카리나", "윈터", "닝닝", "지젤"];
+const memberBtn = memberArr.map((member) => {
+  return <HeaderBtn>{member}</HeaderBtn>;
+});
+
 function App() {
   return (
     <>
-      {/* <header className="header"> */}
       <Header>
         <HeaderH1>에스파 팬레터 컬렉션</HeaderH1>
-        <HeaderBtnContainer>
-          <HeaderBtn>카리나</HeaderBtn>
-          <HeaderBtn>윈터</HeaderBtn>
-          <HeaderBtn>닝닝</HeaderBtn>
-          <HeaderBtn>지젤</HeaderBtn>
-        </HeaderBtnContainer>
-        {/* </header> */}
+        <HeaderBtnContainer>{memberBtn}</HeaderBtnContainer>
       </Header>
       <article className="AddForm-container">
         <div className="AddForm">
