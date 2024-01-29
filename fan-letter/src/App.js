@@ -1,18 +1,48 @@
 import "./App.css";
 import "./reset.css";
+import styled from "styled-components";
+
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5vh;
+
+  height: 25vh;
+  background-color: rgb(255, 220, 226);
+`;
+
+const HeaderH1 = styled.h1`
+  font-size: 50px;
+  text-align: center;
+`;
+
+const HeaderBtnContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+`;
+
+const HeaderBtn = styled.button`
+  width: 10vh;
+  font-size: 20px;
+`;
 
 function App() {
   return (
     <>
-      <header className="header">
-        <h1>에스파 팬레터 컬렉션</h1>
-        <div className="header-btns">
-          <button>카리나</button>
-          <button>윈터</button>
-          <button>닝닝</button>
-          <button>지젤</button>
-        </div>
-      </header>
+      {/* <header className="header"> */}
+      <Header>
+        <HeaderH1>에스파 팬레터 컬렉션</HeaderH1>
+        <HeaderBtnContainer>
+          <HeaderBtn>카리나</HeaderBtn>
+          <HeaderBtn>윈터</HeaderBtn>
+          <HeaderBtn>닝닝</HeaderBtn>
+          <HeaderBtn>지젤</HeaderBtn>
+        </HeaderBtnContainer>
+        {/* </header> */}
+      </Header>
       <article className="AddForm-container">
         <div className="AddForm">
           <section className="AddForm-section">

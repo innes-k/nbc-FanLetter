@@ -1,5 +1,5 @@
 /* header */
-.header {
+/* .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@
 .header-btns > button {
   width: 10vh;
   font-size: 20px;
-}
+} */
 
 /* AddForm */
 .AddForm-container {
