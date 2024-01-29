@@ -10,4 +10,5 @@ export const HeaderBtnContainer = styled.div`
 export const HeaderBtn = styled.button`
   width: 10vh;
   font-size: 20px;
+  background-color: ${(props) => (props.active ? "yellow" : "gray")};
 `;
