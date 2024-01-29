@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import * as styles from "./NavButtons.styles"
 
-const memberArr = ["카리나", "윈터", "닝닝", "지젤"];
-
 function NavButtons() {
+  const memberArr = ["카리나", "윈터", "닝닝", "지젤"];
+
   const [activeButton, setActiveButton] = useState('');
   const activeButtonChangeHandler = (member)=>{setActiveButton(member)}
 
