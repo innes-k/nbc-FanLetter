@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as St from "./AddForm.styles";
+import avatar from "../assets/avatar.png";
 
 const members = ["카리나", "윈터", "닝닝", "지젤"];
 const membersOptions = members.map((member) => {
@@ -12,8 +13,7 @@ function AddForm({ fanLetters, setFanLetters }) {
   const newFanLetter = {
     createdAt: new Date().toString(),
     nickname: newNickname,
-    avatar:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg",
+    avatar: avatar,
     content: newContent,
     writedTo: "카리나",
     id: Date.now(),
