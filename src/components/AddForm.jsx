@@ -44,7 +44,7 @@ function AddForm({ fanLetters, setFanLetters }) {
             onClick={() => {
               setFanLetters([
                 ...fanLetters,
-                { nickname: newNickname, content: newContent },
+                { nickname: newNickname, content: newContent, id: Date.now() },
               ]);
             }}
           >
