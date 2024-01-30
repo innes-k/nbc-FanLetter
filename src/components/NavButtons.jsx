@@ -13,7 +13,7 @@ function NavButtons() {
     return (
       <styles.HeaderBtn
         key={member}
-        isactive={activeButton === member}
+        $active={activeButton === member}
         onClick={() => activeButtonChangeHandler(member)}
       >
         {member}

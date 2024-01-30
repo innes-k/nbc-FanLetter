@@ -9,6 +9,15 @@ const membersOptions = members.map((member) => {
 function AddForm({ fanLetters, setFanLetters }) {
   const [newNickname, setNewNickname] = useState("");
   const [newContent, setNewContent] = useState("");
+  const newFanLetter = {
+    createdAt: new Date().toString(),
+    nickname: newNickname,
+    avatar:
+      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg",
+    content: newContent,
+    writedTo: "카리나",
+    id: Date.now(),
+  };
 
   return (
     <St.Container>
@@ -42,10 +51,8 @@ function AddForm({ fanLetters, setFanLetters }) {
         <St.ButtonSection>
           <St.AddButton
             onClick={() => {
-              setFanLetters([
-                ...fanLetters,
-                { nickname: newNickname, content: newContent, id: Date.now() },
-              ]);
+              setFanLetters([...fanLetters, newFanLetter]);
+              console.log(fanLetters);
             }}
           >
             팬레터 등록
