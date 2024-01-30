@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <Header />
-      <AddForm fanLetters={fanLetters} />
+      <AddForm fanLetters={fanLetters} setFanLetters={setFanLetters} />
       <CommentsBox fanLetters={fanLetters} />
     </>
   );

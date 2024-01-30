@@ -6,7 +6,7 @@ const membersOptions = members.map((member) => {
   return <option key={member}>{member}</option>;
 });
 
-function AddForm({ fanLetters }) {
+function AddForm({ fanLetters, setFanLetters }) {
   const [newNickname, setNewNickname] = useState("");
   const [newContent, setNewContent] = useState("");
 
@@ -40,7 +40,16 @@ function AddForm({ fanLetters }) {
           <select>{membersOptions}</select>
         </St.Section>
         <St.ButtonSection>
-          <St.AddButton>팬레터 등록</St.AddButton>
+          <St.AddButton
+            onClick={() => {
+              setFanLetters([
+                ...fanLetters,
+                { nickname: newNickname, content: newContent },
+              ]);
+            }}
+          >
+            팬레터 등록
+          </St.AddButton>
         </St.ButtonSection>
       </St.Body>
     </St.Container>
