@@ -1,27 +1,37 @@
 import React from "react";
 import { useState } from "react";
 import * as St from "./CommentsBox.styles";
+import NavButtons from "./NavButtons";
 
 function CommentsBox({ fanLetters }) {
+  const [seletedMember, setSelectedMember] = useState("카리나");
+
   return (
     <St.Article>
       <St.Ul>
-        {fanLetters.map((fanLetter) => {
-          return (
-            <St.Li key={fanLetter.id}>
-              <St.DivProfile>
-                <St.ImgProfile src={fanLetter.avatar} alt=""></St.ImgProfile>
-                <St.DivProfileContent>
-                  <span>{fanLetter.nickname}</span>
-                  <time>{fanLetter.createdAt}</time>
-                </St.DivProfileContent>
-              </St.DivProfile>
-              <St.DivComment>
-                <span>{fanLetter.content}</span>
-              </St.DivComment>
-            </St.Li>
-          );
-        })}
+        <NavButtons
+          onButtonClick={(member) => {
+            setSelectedMember(member);
+          }}
+        />
+        {fanLetters
+          .filter((fanLetter) => fanLetter.writedTo === seletedMember)
+          .map((fanLetter) => {
+            return (
+              <St.Li key={fanLetter.id}>
+                <St.DivProfile>
+                  <St.ImgProfile src={fanLetter.avatar} alt=""></St.ImgProfile>
+                  <St.DivProfileContent>
+                    <span>{fanLetter.nickname}</span>
+                    <time>{fanLetter.createdAt}</time>
+                  </St.DivProfileContent>
+                </St.DivProfile>
+                <St.DivComment>
+                  <span>{fanLetter.content}</span>
+                </St.DivComment>
+              </St.Li>
+            );
+          })}
         {/* <St.Li>
           <St.DivProfile>
             <St.ImgProfile
