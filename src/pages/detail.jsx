@@ -1,11 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Detail() {
   const navigate = useNavigate();
   const homeClick = () => {
     navigate("/");
   };
+  const params = useParams();
+  console.log("params", params);
   return (
     <>
       <header>

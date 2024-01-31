@@ -1,6 +1,7 @@
 import React from "react";
 import * as St from "./CommentsBox.styles";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CommentsBox({
   fanLetters,
@@ -8,10 +9,10 @@ function CommentsBox({
   setActiveButton,
   activeButtonChangeHandler,
 }) {
-  const navigate = useNavigate();
-  const fanLetterListClick = (fanLetterId) => {
-    navigate("/detail");
-  };
+  // const navigate = useNavigate();
+  // const fanLetterListClick = (fanLetterId) => {
+  //   navigate("/detail");
+  // };
   return (
     <St.Article>
       <St.Ul>
@@ -21,18 +22,23 @@ function CommentsBox({
             return (
               <St.Li
                 key={fanLetter.id}
-                onClick={() => fanLetterListClick(fanLetter.id)}
+                // onClick={() => fanLetterListClick(fanLetter.id)}
               >
-                <St.DivProfile>
-                  <St.ImgProfile src={fanLetter.avatar} alt=""></St.ImgProfile>
-                  <St.DivProfileContent>
-                    <span>{fanLetter.nickname}</span>
-                    <time>{fanLetter.createdAt}</time>
-                  </St.DivProfileContent>
-                </St.DivProfile>
-                <St.DivComment>
-                  <span>{fanLetter.content}</span>
-                </St.DivComment>
+                <Link to={`/detail/${fanLetter.id}`}>
+                  <St.DivProfile>
+                    <St.ImgProfile
+                      src={fanLetter.avatar}
+                      alt=""
+                    ></St.ImgProfile>
+                    <St.DivProfileContent>
+                      <span>{fanLetter.nickname}</span>
+                      <time>{fanLetter.createdAt}</time>
+                    </St.DivProfileContent>
+                  </St.DivProfile>
+                  <St.DivComment>
+                    <span>{fanLetter.content}</span>
+                  </St.DivComment>
+                </Link>
               </St.Li>
             );
           })}
