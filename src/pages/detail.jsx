@@ -1,10 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Detail() {
+  const navigate = useNavigate();
+  const homeClick = () => {
+    navigate("/");
+  };
   return (
     <>
       <header>
-        <button>홈으로</button>
+        <button onClick={homeClick}>홈으로</button>
       </header>
       <article className="detailBox-container">
         <section className="detailBox">
