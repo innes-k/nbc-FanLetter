@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as St from "./AddForm.styles";
 import avatar from "../assets/avatar.png";
 
@@ -67,9 +67,15 @@ function AddForm({ fanLetters, setFanLetters }) {
         <St.ButtonSection>
           <St.AddButton
             onClick={() => {
-              setFanLetters([...fanLetters, newFanLetter]);
-              setNewNickname("");
-              setNewContent("");
+              if (newNickname === "") {
+                alert("닉네임을 입력하세요.");
+              } else if (newContent === "") {
+                alert("내용을 입력하세요.");
+              } else {
+                setFanLetters([...fanLetters, newFanLetter]);
+                setNewNickname("");
+                setNewContent("");
+              }
             }}
           >
             팬레터 등록

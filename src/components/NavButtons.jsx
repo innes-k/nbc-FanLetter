@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import * as styles from "./NavButtons.styles";
 
 function NavButtons({
