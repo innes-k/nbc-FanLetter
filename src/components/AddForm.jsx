@@ -1,23 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as St from "./AddForm.styles";
 import avatar from "../assets/avatar.png";
-
-const members = ["카리나", "윈터", "닝닝", "지젤"];
-const membersOptions = members.map((member) => {
-  return <option key={member}>{member}</option>;
-});
 
 function AddForm({ fanLetters, setFanLetters }) {
   const [newNickname, setNewNickname] = useState("");
   const [newContent, setNewContent] = useState("");
+  const [newWritedTo, setNewWirtedTo] = useState("카리나");
   const newFanLetter = {
     createdAt: new Date().toString(),
     nickname: newNickname,
     avatar: avatar,
     content: newContent,
-    writedTo: "카리나",
+    writedTo: newWritedTo,
     id: Date.now(),
   };
+
+  const members = ["카리나", "윈터", "닝닝", "지젤"];
+  const membersOptions = members.map((member) => {
+    return (
+      <option key={member} value={member}>
+        {member}
+      </option>
+    );
+  });
+
+  // useEffect(() => {
+  //   console.log(fanLetters);
+  // }, [fanLetters]);
 
   return (
     <St.Container>
@@ -46,13 +55,21 @@ function AddForm({ fanLetters, setFanLetters }) {
         </St.Section>
         <St.Section>
           <St.Span>누구에게?&nbsp;</St.Span>
-          <select>{membersOptions}</select>
+          <select
+            value={newWritedTo}
+            onChange={(event) => {
+              setNewWirtedTo(event.target.value);
+            }}
+          >
+            {membersOptions}
+          </select>
         </St.Section>
         <St.ButtonSection>
           <St.AddButton
             onClick={() => {
               setFanLetters([...fanLetters, newFanLetter]);
-              console.log(fanLetters);
+              setNewNickname("");
+              setNewContent("");
             }}
           >
             팬레터 등록
