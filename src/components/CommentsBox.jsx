@@ -1,21 +1,17 @@
 import React from "react";
-import { useState } from "react";
 import * as St from "./CommentsBox.styles";
-import NavButtons from "./NavButtons";
 
-function CommentsBox({ fanLetters }) {
-  const [seletedMember, setSelectedMember] = useState("카리나");
-
+function CommentsBox({
+  fanLetters,
+  activeButton,
+  setActiveButton,
+  activeButtonChangeHandler,
+}) {
   return (
     <St.Article>
       <St.Ul>
-        <NavButtons
-          onButtonClick={(member) => {
-            setSelectedMember(member);
-          }}
-        />
         {fanLetters
-          .filter((fanLetter) => fanLetter.writedTo === seletedMember)
+          .filter((fanLetter) => fanLetter.writedTo === activeButton)
           .map((fanLetter) => {
             return (
               <St.Li key={fanLetter.id}>
