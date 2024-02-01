@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as St from "./detail.styles";
 
@@ -67,6 +67,19 @@ function Detail({
         })();
   };
 
+  // '삭제' 클릭시
+  // setFanLetters -> 해당 id의 fanLetter 빼고 나머지 애들만 filtering 해서 남기기
+  // home으로 이동
+
+  const removeButtonHandler = () => {
+    setFanLetters(
+      fanLetters.filter((fanLetter) => {
+        return fanLetter.id !== params.pageId;
+      })
+    );
+    homeClick();
+  };
+
   return (
     <>
       <header>
@@ -106,7 +119,7 @@ function Detail({
             <St.BottomBtns onClick={clickEditHandler}>
               {isEdit ? "완료" : "수정"}
             </St.BottomBtns>
-            <St.BottomBtns>삭제</St.BottomBtns>
+            <St.BottomBtns onClick={removeButtonHandler}>삭제</St.BottomBtns>
           </St.BottomBtnsDiv>
         </St.DetailBox>
       </St.DetailBoxFlex>
