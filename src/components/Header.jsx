@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./Header.styles";
+import * as styles from "./styles/Header.styles";
 import NavButtons from "./NavButtons";
 
 function Header({

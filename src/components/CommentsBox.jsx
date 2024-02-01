@@ -1,5 +1,5 @@
 import React from "react";
-import * as St from "./CommentsBox.styles";
+import * as St from "./styles/CommentsBox.styles";
 // import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -9,10 +9,6 @@ function CommentsBox({
   setActiveButton,
   activeButtonChangeHandler,
 }) {
-  // const navigate = useNavigate();
-  // const fanLetterListClick = (fanLetterId) => {
-  //   navigate("/detail");
-  // };
   return (
     <St.Article>
       <St.Ul>
@@ -20,10 +16,7 @@ function CommentsBox({
           .filter((fanLetter) => fanLetter.writedTo === activeButton)
           .map((fanLetter) => {
             return (
-              <St.Li
-                key={fanLetter.id}
-                // onClick={() => fanLetterListClick(fanLetter.id)}
-              >
+              <St.Li key={fanLetter.id}>
                 <Link to={`/detail/${fanLetter.id}`}>
                   <St.DivProfile>
                     <St.ImgProfile

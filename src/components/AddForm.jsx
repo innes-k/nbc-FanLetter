@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as St from "./AddForm.styles";
+import * as St from "./styles/AddForm.styles";
 import avatar from "../assets/avatar.png";
 
 function AddForm({ fanLetters, setFanLetters }) {

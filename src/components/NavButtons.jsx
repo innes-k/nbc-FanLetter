@@ -1,4 +1,4 @@
-import * as styles from "./NavButtons.styles";
+import * as styles from "./styles/NavButtons.styles";
 
 function NavButtons({
   memberArr,
