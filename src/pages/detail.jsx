@@ -8,13 +8,10 @@ function Detail({ fanLetters }) {
     navigate("/");
   };
   const params = useParams();
-  console.log("params", params);
 
   const foundFanLetter = fanLetters.find((fanLetter) => {
-    return fanLetter.id === params.id;
+    return fanLetter.id === params.pageId;
   });
-
-  console.log(foundFanLetter);
 
   return (
     <>
@@ -27,19 +24,17 @@ function Detail({ fanLetters }) {
             <St.Header>
               <St.ProfileImgNickname>
                 <St.ProfileImg
-                  src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg"
+                  src={foundFanLetter.avatar}
                   alt=""
                 ></St.ProfileImg>
-                <St.ProfileNickname>Chad Graham</St.ProfileNickname>
+                <St.ProfileNickname>
+                  {foundFanLetter.nickname}
+                </St.ProfileNickname>
               </St.ProfileImgNickname>
-              <time>23. 11. 03. 오전 08:13:18</time>
+              <time>{foundFanLetter.createdAt}</time>
             </St.Header>
-            <St.MemberName>To. 지젤</St.MemberName>
-            <St.LetterContent>
-              지젤 멋져요Ipsam aspernatur nostrum eos unde velit molestiae
-              dolorem. Tenetur ullam nostrum pariatur. Et in eos. Harum commodi
-              ipsa quaerat aspernatur quod dignissimos quae quidem sapiente.
-            </St.LetterContent>
+            <St.MemberName>{foundFanLetter.writedTo}</St.MemberName>
+            <St.LetterContent>{foundFanLetter.content}</St.LetterContent>
           </div>
           <St.BottomBtnsDiv>
             <St.BottomBtns>수정</St.BottomBtns>

@@ -21,10 +21,6 @@ const Router = () => {
       });
   }, []);
 
-  // const foundFanLetter = fanLetters.find((fanLetter) => {
-  //   return fanLetter.id === parseInt(params.pageId);
-  // });
-
   return (
     <BrowserRouter>
       <Routes>
