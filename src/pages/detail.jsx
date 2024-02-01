@@ -72,12 +72,16 @@ function Detail({
   // home으로 이동
 
   const removeButtonHandler = () => {
-    setFanLetters(
-      fanLetters.filter((fanLetter) => {
-        return fanLetter.id !== params.pageId;
-      })
-    );
-    homeClick();
+    // '삭제' - 삭제할지 다시 한 번 확인받기
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      setFanLetters(
+        fanLetters.filter((fanLetter) => {
+          return fanLetter.id !== params.pageId;
+        })
+      );
+      homeClick();
+    } else {
+    }
   };
 
   return (

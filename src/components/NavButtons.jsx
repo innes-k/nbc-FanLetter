@@ -13,7 +13,6 @@ function NavButtons({
   // const [activeButton, setActiveButton] = useState("카리나");
   // const activeButtonChangeHandler = (member) => {
   //   setActiveButton(member);
-  //   onButtonClick(member);
   // };
 
   const memberButton = memberArr.map((member) => {
