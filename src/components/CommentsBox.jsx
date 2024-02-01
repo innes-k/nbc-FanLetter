@@ -1,14 +1,18 @@
 import React from "react";
 import * as St from "./styles/CommentsBox.styles";
-// import { useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
 
 function CommentsBox({ fanLetters, activeButton, editedContent }) {
+  // activeButton과 일치하는 writedTo 가진 팬레터를 filtering
+  const activeFilteredFanLetter = fanLetters.filter(
+    (fanLetter) => fanLetter.writedTo === activeButton
+  );
+
   return (
     <St.Article>
       <St.Ul>
-        {fanLetters
-          .filter((fanLetter) => fanLetter.writedTo === activeButton)
-          .map((fanLetter) => {
+        {activeFilteredFanLetter.length > 0 ? (
+          activeFilteredFanLetter.map((fanLetter) => {
             return (
               <St.Li key={fanLetter.id}>
                 <St.LinkStyle to={`/detail/${fanLetter.id}`}>
@@ -28,7 +32,12 @@ function CommentsBox({ fanLetters, activeButton, editedContent }) {
                 </St.LinkStyle>
               </St.Li>
             );
-          })}
+          })
+        ) : (
+          <St.NoneFanLetter>
+            아직 등록된 팬레터가 없습니다. 첫 번째 팬레터의 주인공이 되세요!
+          </St.NoneFanLetter>
+        )}
         {/* <St.Li>
           <St.DivProfile>
             <St.ImgProfile

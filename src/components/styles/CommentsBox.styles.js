@@ -62,3 +62,15 @@ export const DivComment = styled.div`
   border-radius: 10px;
   padding: 10px;
 `;
+
+export const NoneFanLetter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: black;
+  padding: 20px;
+
+  color: white;
+  font-size: 16px;
+`;
