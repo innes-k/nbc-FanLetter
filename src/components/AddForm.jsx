@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as St from "./styles/AddForm.styles";
 import avatar from "../assets/avatar.png";
+import { v4 as uuidv4 } from "uuid";
 
 function AddForm({ fanLetters, setFanLetters }) {
   const [newNickname, setNewNickname] = useState("");
@@ -12,7 +13,7 @@ function AddForm({ fanLetters, setFanLetters }) {
     avatar: avatar,
     content: newContent,
     writedTo: newWritedTo,
-    id: Date.now(),
+    id: uuidv4(),
   };
 
   const members = ["카리나", "윈터", "닝닝", "지젤"];
