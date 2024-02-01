@@ -49,7 +49,16 @@ export const MemberName = styled.p`
   margin: 20px auto 20px auto;
 `;
 
-export const LetterContent = styled.p`
+export const LetterContentEdit = styled.textarea`
+  width: 97%;
+  padding: 10px;
+  resize: none;
+  min-height: 130px;
+  margin-bottom: 20px;
+  font-size: 20px;
+`;
+
+export const LetterContentNoneEdit = styled.p`
   background-color: black;
   border-radius: 10px;
   padding: 20px;

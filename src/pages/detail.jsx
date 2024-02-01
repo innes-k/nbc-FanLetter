@@ -24,6 +24,17 @@ function Detail({ fanLetters }) {
   }, [fanLetters, params.pageId]);
 
   // 수정하기
+  const [isEdit, setIsEdit] = useState(false);
+  const [editedContent, setEditedContent] = useState("");
+  useEffect(() => {
+    if (selectedFanLetter) {
+      setEditedContent(selectedFanLetter.content);
+    }
+  }, [selectedFanLetter]);
+
+  const clickEditHandler = () => {
+    setIsEdit(!isEdit);
+  };
 
   return (
     <>
@@ -32,22 +43,6 @@ function Detail({ fanLetters }) {
       </header>
       <St.DetailBoxFlex>
         <St.DetailBox>
-          {/* <div className="detailBox-contents">
-            <St.Header>
-              <St.ProfileImgNickname>
-                <St.ProfileImg
-                  src={selectedFanLetter.avatar}
-                  alt=""
-                ></St.ProfileImg>
-                <St.ProfileNickname>
-                  {selectedFanLetter.nickname}
-                </St.ProfileNickname>
-              </St.ProfileImgNickname>
-              <time>{selectedFanLetter.createdAt}</time>
-            </St.Header>
-            <St.MemberName>{selectedFanLetter.writedTo}</St.MemberName>
-            <St.LetterContent>{selectedFanLetter.content}</St.LetterContent>
-          </div> */}
           {selectedFanLetter ? (
             <div className="detailBox-contents">
               <St.Header>
@@ -60,13 +55,27 @@ function Detail({ fanLetters }) {
                 <time>{selectedFanLetter.createdAt}</time>
               </St.Header>
               <St.MemberName>{selectedFanLetter.writedTo}</St.MemberName>
-              <St.LetterContent>{selectedFanLetter.content}</St.LetterContent>
+              {/* <St.LetterContent>{selectedFanLetter.content}</St.LetterContent> */}
+              {isEdit ? (
+                <St.LetterContentEdit
+                  value={editedContent}
+                  onChange={(event) => {
+                    setEditedContent(event.target.value);
+                  }}
+                />
+              ) : (
+                <St.LetterContentNoneEdit>
+                  {editedContent}
+                </St.LetterContentNoneEdit>
+              )}
             </div>
           ) : (
             <div>Loading...</div>
           )}
           <St.BottomBtnsDiv>
-            <St.BottomBtns>수정</St.BottomBtns>
+            <St.BottomBtns onClick={clickEditHandler}>
+              {isEdit ? "완료" : "수정"}
+            </St.BottomBtns>
             <St.BottomBtns>삭제</St.BottomBtns>
           </St.BottomBtnsDiv>
         </St.DetailBox>
