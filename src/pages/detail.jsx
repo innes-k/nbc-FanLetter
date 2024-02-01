@@ -44,13 +44,19 @@ function Detail({
   // 수정 '완료' 클릭시 fanLetters의 해당 id의 content를 editedContent로 갈아끼우기
 
   const changeContentToEditContent = (nextContent) => {
-    setFanLetters((prevFanLetters) => {
-      return prevFanLetters.map((fanLetter) => {
-        return fanLetter.id === params.pageId
-          ? { ...fanLetter, content: nextContent }
-          : fanLetter;
-      });
-    });
+    if (isEdit) {
+      if (window.confirm("이대로 수정하시겠습니까?")) {
+        setFanLetters((prevFanLetters) => {
+          return prevFanLetters.map((fanLetter) => {
+            return fanLetter.id === params.pageId
+              ? { ...fanLetter, content: nextContent }
+              : fanLetter;
+          });
+        });
+      } else {
+      }
+    } else {
+    }
   };
 
   // 수정, 완료 버튼 handler
