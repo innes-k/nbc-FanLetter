@@ -61,10 +61,11 @@ export const LetterContent = styled.p`
 export const BottomBtnsDiv = styled.div`
   display: flex;
   justify-content: right;
-  gap: 20px;
+  gap: 10px;
 `;
 
 export const BottomBtns = styled.button`
-  width: 50px;
+  width: 60px;
   height: 30px;
+  font-size: 15px;
 `;

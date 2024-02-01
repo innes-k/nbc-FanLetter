@@ -2,13 +2,20 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as St from "./detail.styles";
 
-function Detail() {
+function Detail({ fanLetters }) {
   const navigate = useNavigate();
   const homeClick = () => {
     navigate("/");
   };
   const params = useParams();
   console.log("params", params);
+
+  const foundFanLetter = fanLetters.find((fanLetter) => {
+    return fanLetter.id === params.id;
+  });
+
+  console.log(foundFanLetter);
+
   return (
     <>
       <header>
