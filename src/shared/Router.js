@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "pages/Home";
 import Detail from "pages/detail";
+import { GlobalStyle } from "../components/styles/GlobalStyle";
 
 const Router = () => {
   const [fanLetters, setFanLetters] = useState([]);
@@ -27,39 +28,42 @@ const Router = () => {
   const [selectedFanLetter, setSelectedFanLetter] = useState(null);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              fanLetters={fanLetters}
-              setFanLetters={setFanLetters}
-              memberArr={memberArr}
-              activeButton={activeButton}
-              setActiveButton={setActiveButton}
-              activeButtonChangeHandler={activeButtonChangeHandler}
-              editedContent={editedContent}
-            />
-          }
-        />
-        <Route
-          path="detail/:pageId"
-          element={
-            <Detail
-              fanLetters={fanLetters}
-              setFanLetters={setFanLetters}
-              isEdit={isEdit}
-              setIsEdit={setIsEdit}
-              editedContent={editedContent}
-              setEditedContent={setEditedContent}
-              selectedFanLetter={selectedFanLetter}
-              setSelectedFanLetter={setSelectedFanLetter}
-            />
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                fanLetters={fanLetters}
+                setFanLetters={setFanLetters}
+                memberArr={memberArr}
+                activeButton={activeButton}
+                setActiveButton={setActiveButton}
+                activeButtonChangeHandler={activeButtonChangeHandler}
+                editedContent={editedContent}
+              />
+            }
+          />
+          <Route
+            path="detail/:pageId"
+            element={
+              <Detail
+                fanLetters={fanLetters}
+                setFanLetters={setFanLetters}
+                isEdit={isEdit}
+                setIsEdit={setIsEdit}
+                editedContent={editedContent}
+                setEditedContent={setEditedContent}
+                selectedFanLetter={selectedFanLetter}
+                setSelectedFanLetter={setSelectedFanLetter}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 
