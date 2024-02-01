@@ -1,7 +1,6 @@
 import React from "react";
 import * as St from "./styles/CommentsBox.styles";
 // import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 function CommentsBox({
   fanLetters,
@@ -17,7 +16,7 @@ function CommentsBox({
           .map((fanLetter) => {
             return (
               <St.Li key={fanLetter.id}>
-                <Link to={`/detail/${fanLetter.id}`}>
+                <St.LinkStyle to={`/detail/${fanLetter.id}`}>
                   <St.DivProfile>
                     <St.ImgProfile
                       src={fanLetter.avatar}
@@ -31,7 +30,7 @@ function CommentsBox({
                   <St.DivComment>
                     <span>{fanLetter.content}</span>
                   </St.DivComment>
-                </Link>
+                </St.LinkStyle>
               </St.Li>
             );
           })}

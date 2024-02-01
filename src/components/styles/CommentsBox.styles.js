@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Article = styled.article`
   display: flex;
@@ -25,6 +26,11 @@ export const Li = styled.li`
     cursor: pointer;
     transition: 0.3s;
   }
+`;
+
+export const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: white;
 `;
 
 export const DivProfile = styled.div`
