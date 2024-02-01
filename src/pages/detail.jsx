@@ -54,13 +54,19 @@ function Detail({
   };
 
   // 수정, 완료 버튼 handler
+  // 추가 설명 : (isEdit===false가 기본)
+  // 기본이 true이면 textarea로 바꿔/ 기본이 false이면 수정사항 있으면 변경후 홈이동, 수정사항 없으면 alert
   const clickEditHandler = () => {
     changeContentToEditContent(editedContent);
     //
     (isEdit
       ? () => {
-          setIsEdit(!isEdit);
-          homeClick();
+          if (selectedFanLetter.content === editedContent) {
+            alert("수정사항이 없습니다.");
+          } else {
+            setIsEdit(!isEdit);
+            homeClick();
+          }
         }
       : () => {
           setIsEdit(!isEdit);
