@@ -2,12 +2,7 @@ import React from "react";
 import * as St from "./styles/CommentsBox.styles";
 // import { useNavigate } from "react-router-dom";
 
-function CommentsBox({
-  fanLetters,
-  activeButton,
-  setActiveButton,
-  activeButtonChangeHandler,
-}) {
+function CommentsBox({ fanLetters, activeButton, editedContent }) {
   return (
     <St.Article>
       <St.Ul>

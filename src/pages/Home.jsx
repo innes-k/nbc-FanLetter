@@ -12,6 +12,7 @@ function Home({
   activeButton,
   setActiveButton,
   activeButtonChangeHandler,
+  editedContent,
 }) {
   // const [fanLetters, setFanLetters] = useState([]);
   // const memberArr = ["카리나", "윈터", "닝닝", "지젤"];
@@ -44,6 +45,7 @@ function Home({
         activeButton={activeButton}
         setActiveButton={setActiveButton}
         activeButtonChangeHandler={activeButtonChangeHandler}
+        editedContent={editedContent}
       />
     </>
   );

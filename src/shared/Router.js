@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Home from "pages/Home";
 import Detail from "pages/detail";
 
@@ -21,6 +22,11 @@ const Router = () => {
       });
   }, []);
 
+  // 팬레터 내용 수정
+  const [isEdit, setIsEdit] = useState(false);
+  const [editedContent, setEditedContent] = useState("");
+  const [selectedFanLetter, setSelectedFanLetter] = useState(null);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -34,12 +40,24 @@ const Router = () => {
               activeButton={activeButton}
               setActiveButton={setActiveButton}
               activeButtonChangeHandler={activeButtonChangeHandler}
+              editedContent={editedContent}
             />
           }
         />
         <Route
           path="detail/:pageId"
-          element={<Detail fanLetters={fanLetters} />}
+          element={
+            <Detail
+              fanLetters={fanLetters}
+              setFanLetters={setFanLetters}
+              isEdit={isEdit}
+              setIsEdit={setIsEdit}
+              editedContent={editedContent}
+              setEditedContent={setEditedContent}
+              selectedFanLetter={selectedFanLetter}
+              setSelectedFanLetter={setSelectedFanLetter}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>
