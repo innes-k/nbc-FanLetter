@@ -22,7 +22,7 @@ const Router = () => {
       });
   }, []);
 
-  // 팬레터 내용 수정
+  // detail 페이지의 states
   const [isEdit, setIsEdit] = useState(false);
   const [editedContent, setEditedContent] = useState("");
   const [selectedFanLetter, setSelectedFanLetter] = useState(null);

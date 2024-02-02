@@ -18,10 +18,10 @@ function Detail({
     navigate("/");
   };
 
-  // 클릭한 fanLetter로 정보 가져오기
+  // 클릭한 fanLetter의 정보 가져오기 (Line 23~33)
+  // props : const [selectedFanLetter, setSelectedFanLetter] = useState(null);
   const params = useParams();
 
-  // const [selectedFanLetter, setSelectedFanLetter] = useState(null);
   useEffect(() => {
     const foundFanLetter = fanLetters.find((foundFanLetter) => {
       return foundFanLetter.id === params.pageId;
@@ -33,17 +33,16 @@ function Detail({
   }, [fanLetters, params.pageId, setSelectedFanLetter]);
 
   // 수정하기
-  // const [isEdit, setIsEdit] = useState(false);
-  // const [editedContent, setEditedContent] = useState("");
+  // props : const [editedContent, setEditedContent] = useState("");
   useEffect(() => {
     if (selectedFanLetter) {
       setEditedContent(selectedFanLetter.content);
     }
   }, [selectedFanLetter, setEditedContent]);
 
-  // 수정 '완료' 클릭시 fanLetters의 해당 id의 content를 editedContent로 갈아끼우기
-
-  const changeContentToEditContent = (nextContent) => {
+  // 수정 '완료' 클릭시 - fanLetters의 해당 id의 content를 editedContent로 갈아끼우기
+  // props : const [isEdit, setIsEdit] = useState(false);
+  const changeContentToEditedContent = (nextContent) => {
     if (isEdit) {
       if (window.confirm("이대로 수정하시겠습니까?")) {
         setFanLetters((prevFanLetters) => {
@@ -60,11 +59,8 @@ function Detail({
   };
 
   // 수정, 완료 버튼 handler
-  // 추가 설명 : (isEdit===false가 기본)
-  // 기본이 true이면 textarea로 바꿔/ 기본이 false이면 수정사항 있으면 변경후 홈이동, 수정사항 없으면 alert
   const clickEditHandler = () => {
-    changeContentToEditContent(editedContent);
-    //
+    changeContentToEditedContent(editedContent);
     (isEdit
       ? () => {
           if (selectedFanLetter.content === editedContent) {
@@ -79,12 +75,8 @@ function Detail({
         })();
   };
 
-  // '삭제' 클릭시
-  // setFanLetters -> 해당 id의 fanLetter 빼고 나머지 애들만 filtering 해서 남기기
-  // home으로 이동
-
+  // '삭제' 버튼 handler
   const removeButtonHandler = () => {
-    // '삭제' - 삭제할지 다시 한 번 확인받기
     if (window.confirm("정말 삭제하시겠습니까?")) {
       setFanLetters(
         fanLetters.filter((fanLetter) => {

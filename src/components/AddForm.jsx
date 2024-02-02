@@ -3,7 +3,7 @@ import * as St from "./styles/AddForm.styles";
 import avatar from "../assets/avatar.png";
 import { v4 as uuidv4 } from "uuid";
 
-function AddForm({ fanLetters, setFanLetters }) {
+function AddForm({ fanLetters, setFanLetters, memberArr }) {
   const [newNickname, setNewNickname] = useState("");
   const [newContent, setNewContent] = useState("");
   const [newWritedTo, setNewWirtedTo] = useState("카리나");
@@ -16,18 +16,13 @@ function AddForm({ fanLetters, setFanLetters }) {
     id: uuidv4(),
   };
 
-  const members = ["카리나", "윈터", "닝닝", "지젤"];
-  const membersOptions = members.map((member) => {
+  const membersOptions = memberArr.map((member) => {
     return (
       <option key={member} value={member}>
         {member}
       </option>
     );
   });
-
-  // useEffect(() => {
-  //   console.log(fanLetters);
-  // }, [fanLetters]);
 
   return (
     <St.Container>
@@ -55,7 +50,7 @@ function AddForm({ fanLetters, setFanLetters }) {
           />
         </St.Section>
         <St.Section>
-          <St.Span>누구에게?&nbsp;</St.Span>
+          <St.Span>To. &nbsp;</St.Span>
           <select
             value={newWritedTo}
             onChange={(event) => {

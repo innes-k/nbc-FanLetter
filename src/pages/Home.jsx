@@ -1,5 +1,3 @@
-// import { useEffect, useState } from "react";
-import "App.css";
 import "reset.css";
 import Header from "components/Header.jsx";
 import AddForm from "components/AddForm.jsx";
@@ -39,7 +37,11 @@ function Home({
         setActiveButton={setActiveButton}
         activeButtonChangeHandler={activeButtonChangeHandler}
       />
-      <AddForm fanLetters={fanLetters} setFanLetters={setFanLetters} />
+      <AddForm
+        fanLetters={fanLetters}
+        setFanLetters={setFanLetters}
+        memberArr={memberArr}
+      />
       <CommentsBox
         fanLetters={fanLetters}
         activeButton={activeButton}
