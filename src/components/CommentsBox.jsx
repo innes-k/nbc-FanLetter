@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as St from "./styles/CommentsBox.styles";
-// import { useEffect } from "react";
+import { FanLettersContext } from "./context/FanLettersContext";
 
-function CommentsBox({ fanLetters, activeButton }) {
+function CommentsBox() {
+  const context = useContext(FanLettersContext);
+
   // activeButton과 일치하는 writedTo 가진 팬레터를 filtering
   // (삭제된 팬레터 파악을 위한 filtering)
-  const activeFilteredFanLetter = fanLetters.filter(
-    (fanLetter) => fanLetter.writedTo === activeButton
+  const activeFilteredFanLetter = context.fanLetters.filter(
+    (fanLetter) => fanLetter.writedTo === context.activeButton
   );
 
   return (

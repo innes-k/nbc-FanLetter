@@ -49,20 +49,7 @@ const Router = () => {
         <GlobalStyle />
         <BrowserRouter>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  fanLetters={fanLetters}
-                  setFanLetters={setFanLetters}
-                  memberArr={memberArr}
-                  activeButton={activeButton}
-                  setActiveButton={setActiveButton}
-                  activeButtonChangeHandler={activeButtonChangeHandler}
-                  editedContent={editedContent}
-                />
-              }
-            />
+            <Route path="/" element={<Home />} />
             <Route
               path="detail/:pageId"
               element={
