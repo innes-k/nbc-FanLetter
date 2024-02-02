@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import * as St from "./styles/AddForm.styles";
 import avatar from "../assets/avatar.png";
 import { v4 as uuidv4 } from "uuid";
+import { FanLettersContext } from "./context/FanLettersContext";
 
-function AddForm({ fanLetters, setFanLetters, memberArr }) {
+function AddForm() {
+  const context = useContext(FanLettersContext);
+
   const [newNickname, setNewNickname] = useState("");
   const [newContent, setNewContent] = useState("");
   const [newWritedTo, setNewWirtedTo] = useState("카리나");
@@ -16,7 +19,7 @@ function AddForm({ fanLetters, setFanLetters, memberArr }) {
     id: uuidv4(),
   };
 
-  const membersOptions = memberArr.map((member) => {
+  const membersOptions = context.memberArr.map((member) => {
     return (
       <option key={member} value={member}>
         {member}
@@ -68,7 +71,7 @@ function AddForm({ fanLetters, setFanLetters, memberArr }) {
               } else if (newContent === "") {
                 alert("내용을 입력하세요.");
               } else {
-                setFanLetters([...fanLetters, newFanLetter]);
+                context.setFanLetters([...context.fanLetters, newFanLetter]);
                 setNewNickname("");
                 setNewContent("");
               }
