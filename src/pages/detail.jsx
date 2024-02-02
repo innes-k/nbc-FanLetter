@@ -1,17 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as St from "./detail.styles";
+import { FanLettersContext } from "components/context/FanLettersContext";
 
-function Detail({
-  fanLetters,
-  setFanLetters,
-  isEdit,
-  setIsEdit,
-  editedContent,
-  setEditedContent,
-  selectedFanLetter,
-  setSelectedFanLetter,
-}) {
+function Detail() {
+  const context = useContext(FanLettersContext);
+
   // 홈으로 이동
   const navigate = useNavigate();
   const homeClick = () => {
@@ -23,29 +17,29 @@ function Detail({
   const params = useParams();
 
   useEffect(() => {
-    const foundFanLetter = fanLetters.find((foundFanLetter) => {
+    const foundFanLetter = context.fanLetters.find((foundFanLetter) => {
       return foundFanLetter.id === params.pageId;
     });
     if (foundFanLetter) {
-      setSelectedFanLetter(foundFanLetter);
+      context.setSelectedFanLetter(foundFanLetter);
     } else {
     }
-  }, [fanLetters, params.pageId, setSelectedFanLetter]);
+  }, [context.fanLetters, params.pageId, context.setSelectedFanLetter]);
 
   // 수정하기
   // props : const [editedContent, setEditedContent] = useState("");
   useEffect(() => {
-    if (selectedFanLetter) {
-      setEditedContent(selectedFanLetter.content);
+    if (context.selectedFanLetter) {
+      context.setEditedContent(context.selectedFanLetter.content);
     }
-  }, [selectedFanLetter, setEditedContent]);
+  }, [context.selectedFanLetter, context.setEditedContent]);
 
   // 수정 '완료' 클릭시 - fanLetters의 해당 id의 content를 editedContent로 갈아끼우기
   // props : const [isEdit, setIsEdit] = useState(false);
   const changeContentToEditedContent = (nextContent) => {
-    if (isEdit) {
+    if (context.isEdit) {
       if (window.confirm("이대로 수정하시겠습니까?")) {
-        setFanLetters((prevFanLetters) => {
+        context.setFanLetters((prevFanLetters) => {
           return prevFanLetters.map((fanLetter) => {
             return fanLetter.id === params.pageId
               ? { ...fanLetter, content: nextContent }
@@ -60,26 +54,26 @@ function Detail({
 
   // 수정, 완료 버튼 handler
   const clickEditHandler = () => {
-    changeContentToEditedContent(editedContent);
-    (isEdit
+    changeContentToEditedContent(context.editedContent);
+    (context.isEdit
       ? () => {
-          if (selectedFanLetter.content === editedContent) {
+          if (context.selectedFanLetter.content === context.editedContent) {
             alert("수정사항이 없습니다.");
           } else {
-            setIsEdit(!isEdit);
+            context.setIsEdit(!context.isEdit);
             homeClick();
           }
         }
       : () => {
-          setIsEdit(!isEdit);
+          context.setIsEdit(!context.isEdit);
         })();
   };
 
   // '삭제' 버튼 handler
   const removeButtonHandler = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
-      setFanLetters(
-        fanLetters.filter((fanLetter) => {
+      context.setFanLetters(
+        context.fanLetters.filter((fanLetter) => {
           return fanLetter.id !== params.pageId;
         })
       );
@@ -95,29 +89,34 @@ function Detail({
       </header>
       <St.DetailBoxFlex>
         <St.DetailBox>
-          {selectedFanLetter ? (
+          {context.selectedFanLetter ? (
             <div className="detailBox-contents">
               <St.Header>
                 <St.ProfileImgNickname>
-                  <St.ProfileImg src={selectedFanLetter.avatar} alt="" />
+                  <St.ProfileImg
+                    src={context.selectedFanLetter.avatar}
+                    alt=""
+                  />
                   <St.ProfileNickname>
-                    {selectedFanLetter.nickname}
+                    {context.selectedFanLetter.nickname}
                   </St.ProfileNickname>
                 </St.ProfileImgNickname>
-                <time>{selectedFanLetter.createdAt}</time>
+                <time>{context.selectedFanLetter.createdAt}</time>
               </St.Header>
-              <St.MemberName>To. {selectedFanLetter.writedTo}</St.MemberName>
+              <St.MemberName>
+                To. {context.selectedFanLetter.writedTo}
+              </St.MemberName>
               {/* 수정버튼 클릭시 textarea로 변환 */}
-              {isEdit ? (
+              {context.isEdit ? (
                 <St.EditTextarea
-                  value={editedContent}
+                  value={context.editedContent}
                   onChange={(event) => {
-                    setEditedContent(event.target.value);
+                    context.setEditedContent(event.target.value);
                   }}
                   maxLength="100"
                 />
               ) : (
-                <St.NoneEditP>{editedContent}</St.NoneEditP>
+                <St.NoneEditP>{context.editedContent}</St.NoneEditP>
               )}
             </div>
           ) : (
@@ -125,7 +124,7 @@ function Detail({
           )}
           <St.BottomBtnsDiv>
             <St.BottomBtns onClick={clickEditHandler}>
-              {isEdit ? "완료" : "수정"}
+              {context.isEdit ? "완료" : "수정"}
             </St.BottomBtns>
             <St.BottomBtns onClick={removeButtonHandler}>삭제</St.BottomBtns>
           </St.BottomBtnsDiv>

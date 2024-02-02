@@ -50,21 +50,7 @@ const Router = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="detail/:pageId"
-              element={
-                <Detail
-                  fanLetters={fanLetters}
-                  setFanLetters={setFanLetters}
-                  isEdit={isEdit}
-                  setIsEdit={setIsEdit}
-                  editedContent={editedContent}
-                  setEditedContent={setEditedContent}
-                  selectedFanLetter={selectedFanLetter}
-                  setSelectedFanLetter={setSelectedFanLetter}
-                />
-              }
-            />
+            <Route path="detail/:pageId" element={<Detail />} />
           </Routes>
         </BrowserRouter>
       </FanLettersContext.Provider>
