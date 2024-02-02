@@ -30,7 +30,7 @@ const Router = () => {
 
   return (
     <>
-      {/* <FanLettersContext.Provider
+      <FanLettersContext.Provider
         value={{
           fanLetters,
           setFanLetters,
@@ -45,42 +45,42 @@ const Router = () => {
           selectedFanLetter,
           setSelectedFanLetter,
         }}
-      > */}
-      <GlobalStyle />
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                fanLetters={fanLetters}
-                setFanLetters={setFanLetters}
-                memberArr={memberArr}
-                activeButton={activeButton}
-                setActiveButton={setActiveButton}
-                activeButtonChangeHandler={activeButtonChangeHandler}
-                editedContent={editedContent}
-              />
-            }
-          />
-          <Route
-            path="detail/:pageId"
-            element={
-              <Detail
-                fanLetters={fanLetters}
-                setFanLetters={setFanLetters}
-                isEdit={isEdit}
-                setIsEdit={setIsEdit}
-                editedContent={editedContent}
-                setEditedContent={setEditedContent}
-                selectedFanLetter={selectedFanLetter}
-                setSelectedFanLetter={setSelectedFanLetter}
-              />
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-      {/* </FanLettersContext.Provider> */}
+      >
+        <GlobalStyle />
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  fanLetters={fanLetters}
+                  setFanLetters={setFanLetters}
+                  memberArr={memberArr}
+                  activeButton={activeButton}
+                  setActiveButton={setActiveButton}
+                  activeButtonChangeHandler={activeButtonChangeHandler}
+                  editedContent={editedContent}
+                />
+              }
+            />
+            <Route
+              path="detail/:pageId"
+              element={
+                <Detail
+                  fanLetters={fanLetters}
+                  setFanLetters={setFanLetters}
+                  isEdit={isEdit}
+                  setIsEdit={setIsEdit}
+                  editedContent={editedContent}
+                  setEditedContent={setEditedContent}
+                  selectedFanLetter={selectedFanLetter}
+                  setSelectedFanLetter={setSelectedFanLetter}
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </FanLettersContext.Provider>
     </>
   );
 };

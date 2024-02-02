@@ -1,27 +1,16 @@
+import { useContext } from "react";
 import * as styles from "./styles/NavButtons.styles";
+import { FanLettersContext } from "./context/FanLettersContext";
 
-function NavButtons({
-  memberArr,
-  activeButton,
-  setActiveButton,
-  activeButtonChangeHandler,
-}) {
-  // 아래 주석 : Router -> Home -> Header -> NavButtons로 props drilling된 정보들
+function NavButtons() {
+  const context = useContext(FanLettersContext);
 
-  // const memberArr = ["카리나", "윈터", "닝닝", "지젤"];
-
-  // const [activeButton, setActiveButton] = useState("카리나");
-
-  // const activeButtonChangeHandler = (member) => {
-  //   setActiveButton(member);
-  // };
-
-  const memberButton = memberArr.map((member) => {
+  const memberButton = context.memberArr.map((member) => {
     return (
       <styles.HeaderBtn
         key={member}
-        $active={activeButton === member}
-        onClick={() => activeButtonChangeHandler(member)}
+        $active={context.activeButton === member}
+        onClick={() => context.activeButtonChangeHandler(member)}
       >
         {member}
       </styles.HeaderBtn>

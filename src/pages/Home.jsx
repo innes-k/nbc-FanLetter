@@ -39,7 +39,11 @@ function Home({
         setActiveButton={setActiveButton}
         activeButtonChangeHandler={activeButtonChangeHandler}
       />
-      <AddForm fanLetters={fanLetters} setFanLetters={setFanLetters} />
+      <AddForm
+        fanLetters={fanLetters}
+        setFanLetters={setFanLetters}
+        memberArr={memberArr}
+      />
       <CommentsBox
         fanLetters={fanLetters}
         activeButton={activeButton}
