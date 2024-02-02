@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Home from "pages/Home";
 import Detail from "pages/detail";
 import { GlobalStyle } from "../components/styles/GlobalStyle";
+import { FanLettersContext } from "components/context/FanLettersContext";
 
 const Router = () => {
   const [fanLetters, setFanLetters] = useState([]);
@@ -29,6 +30,22 @@ const Router = () => {
 
   return (
     <>
+      {/* <FanLettersContext.Provider
+        value={{
+          fanLetters,
+          setFanLetters,
+          memberArr,
+          activeButton,
+          setActiveButton,
+          activeButtonChangeHandler,
+          editedContent,
+          isEdit,
+          setIsEdit,
+          setEditedContent,
+          selectedFanLetter,
+          setSelectedFanLetter,
+        }}
+      > */}
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
@@ -63,6 +80,7 @@ const Router = () => {
           />
         </Routes>
       </BrowserRouter>
+      {/* </FanLettersContext.Provider> */}
     </>
   );
 };
