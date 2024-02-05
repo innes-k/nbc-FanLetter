@@ -95,8 +95,6 @@
 
 - context API 사용 시 구조분해할당으로 더 간결하게 작성하지 못한 점
 
-- context API의 Provider를 다른 파일로 분리하지 못한 점
-
 - Redux를 개념만 이해하고 내 코드에 적용하지 못한 점
 
 <br>
