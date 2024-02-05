@@ -3,12 +3,12 @@ import * as St from "./styles/CommentsBox.styles";
 import { FanLettersContext } from "./context/FanLettersContext";
 
 function CommentsBox() {
-  const context = useContext(FanLettersContext);
+  const { fanLetters, activeButton } = useContext(FanLettersContext);
 
   // activeButton과 일치하는 writedTo 가진 팬레터를 filtering
   // (삭제된 팬레터 파악을 위한 filtering)
-  const activeFilteredFanLetter = context.fanLetters.filter(
-    (fanLetter) => fanLetter.writedTo === context.activeButton
+  const activeFilteredFanLetter = fanLetters.filter(
+    (fanLetter) => fanLetter.writedTo === activeButton
   );
 
   return (
