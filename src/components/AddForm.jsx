@@ -3,10 +3,14 @@ import * as St from "./styles/AddForm.styles";
 import avatar from "../assets/avatar.png";
 import { v4 as uuidv4 } from "uuid";
 import { FanLettersContext } from "./context/FanLettersContext";
+// import { useDispatch } from "react-redux";
+// import { addLetter } from "../redux/modules/fanLetters";
 
 function AddForm() {
   const { memberArr, setFanLetters, fanLetters } =
     useContext(FanLettersContext);
+
+  // const dispatch = useDispatch();
 
   const [newNickname, setNewNickname] = useState("");
   const [newContent, setNewContent] = useState("");
@@ -73,6 +77,7 @@ function AddForm() {
                 alert("내용을 입력하세요.");
               } else {
                 setFanLetters([...fanLetters, newFanLetter]);
+                // dispatch(addLetter(newFanLetter));
                 setNewNickname("");
                 setNewContent("");
               }

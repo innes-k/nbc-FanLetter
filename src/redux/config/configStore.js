@@ -1,12 +1,10 @@
-// // 중앙 데이터 관리소(store)를 설정하는 부분
+import { createStore } from "redux";
+import { combineReducers } from "redux";
+import FanLetters from "../modules/fanLetters";
 
-// import { createStore } from "redux";
-// import { combineReducers } from "redux";
-// import counter from "../modules/counter";
+const rootReducer = combineReducers({
+  FanLetters,
+});
+const store = createStore(rootReducer);
 
-// const rootReducer = combineReducers({
-//   counter,
-// });
-// const store = createStore(rootReducer);
-
-// export default store;
+export default store;
