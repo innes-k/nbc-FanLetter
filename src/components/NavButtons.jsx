@@ -3,14 +3,15 @@ import * as styles from "./styles/NavButtons.styles";
 import { FanLettersContext } from "./context/FanLettersContext";
 
 function NavButtons() {
-  const context = useContext(FanLettersContext);
+  const { memberArr, activeButton, activeButtonChangeHandler } =
+    useContext(FanLettersContext);
 
-  const memberButton = context.memberArr.map((member) => {
+  const memberButton = memberArr.map((member) => {
     return (
       <styles.HeaderBtn
         key={member}
-        $active={context.activeButton === member}
-        onClick={() => context.activeButtonChangeHandler(member)}
+        $active={activeButton === member}
+        onClick={() => activeButtonChangeHandler(member)}
       >
         {member}
       </styles.HeaderBtn>
