@@ -5,7 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import { FanLettersContext } from "./context/FanLettersContext";
 
 function AddForm() {
-  const context = useContext(FanLettersContext);
+  const { memberArr, setFanLetters, fanLetters } =
+    useContext(FanLettersContext);
 
   const [newNickname, setNewNickname] = useState("");
   const [newContent, setNewContent] = useState("");
@@ -19,7 +20,7 @@ function AddForm() {
     id: uuidv4(),
   };
 
-  const membersOptions = context.memberArr.map((member) => {
+  const membersOptions = memberArr.map((member) => {
     return (
       <option key={member} value={member}>
         {member}
@@ -71,7 +72,7 @@ function AddForm() {
               } else if (newContent === "") {
                 alert("내용을 입력하세요.");
               } else {
-                context.setFanLetters([...context.fanLetters, newFanLetter]);
+                setFanLetters([...fanLetters, newFanLetter]);
                 setNewNickname("");
                 setNewContent("");
               }
