@@ -1,7 +1,8 @@
 # Fanletters Mailbox (React)
 
 - React\_그룹 아티스트 팬레터 사이트
-- context API, Redux 전역 상태 관리
+- `context API`, `Redux` 전역 상태 관리
+- `Router` 페이지 이동
 
 <br/>
 
@@ -20,7 +21,8 @@
 ### ⚙️ 개발 환경
 
 - `React`, `HTML5`, `CSS3`
-- `context API`, `Redux``
+- `context API`, `Redux`
+- `Router`
 - **environment** : Visual Studio Code, git, github
 
 <br/>
@@ -29,31 +31,13 @@
 
 - 메인 페이지
 
-  ![메인](./images/main.png)
+  ![메인](./src/assets/main.png)
 
 <br/>
 
-- 'Working' 에 리스트 추가
+- 상세 페이지
 
-  ![목록추가](./images/add.gif)
-
-<br/>
-
-- 완료 항목 'Done'으로 이동
-
-  ![목록이동](./images/addToDone.gif)
-
-<br/>
-
-- 'Done'의 항목을 다시 'Working' 으로 복구
-
-  ![list복구](./images/doneToAdd.gif)
-
-<br/>
-
-- 리스트 삭제하기
-
-  ![삭제](./images/remove.gif)
+  ![상세](./src/assets/detail.png)
 
 <br/>
 
@@ -85,92 +69,13 @@
 
 5. 팬레터 등록 시 id는 uuid 라이브러리를 이용
 
-<br>
+6. props-drilling, context API, Redux 각 브랜치 분리
 
-### 선택 구현사항
+   - `props-drilling` branch : useState로 상태 관리
 
-1.  유효성 검사
+   - `context API` branch : context API 사용한 전역 상태관리로 리팩토링
 
-- 제목, 내용 미입력시 alert 생성 후 input 초기화
-
-  - 제목 미입력시
-
-    ![제목유효성](./images/titleValid.gif)
-
-    <br>
-
-  - 내용 미입력시
-
-    ![내용유효성](./images/bodyValid.gif)
-
-<br>
-
-2. Enter키로 '추가하기' 버튼 대체
-
-- 제목, 내용 입력 후 '추가하기' 버튼 대신 Enter키로 리스트 추가 가능
-
-<br>
-
-3. 컴포넌트 분리
-
-- InputBox 컴포넌트 분리
-
-```js
-function InputBox(props) {
-  return (
-    <div className="container-inputTitle">
-      <div className="inputTitle">
-        <div className="form-floating mb-3">
-          <input
-            value={props.title}
-            onChange={props.inputTitle}
-            type="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="inputTitle"
-          />
-          <label htmlFor="floatingInput">제목</label>
-        </div>
-        <div className="form-floating mb-3">
-          <input
-            onKeyPress={props.onCheckEnter}
-            value={props.body}
-            onChange={props.inputBody}
-            type="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="inputBody"
-          />
-          <label htmlFor="floatingInput">내용을 입력하세요</label>
-        </div>
-        <div className="addBtn">
-          <button
-            onClick={props.addHandler}
-            type="button"
-            className="btn text-white"
-          >
-            추가하기
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function App() {
-  // ...생략
-  return;
-  <InputBox
-    title={title}
-    inputTitle={inputTitle}
-    onCheckEnter={onCheckEnter}
-    body={body}
-    inputBody={inputBody}
-    addHandler={addHandler}
-  />;
-  // ...생략
-}
-```
+   - `Redux` branch : redux 라이브러리 사용한 전역 상태관리로 리팩토링
 
 <br>
 
@@ -178,9 +83,9 @@ function App() {
 
 ### Keep (유지하고 싶은 좋았던 점)
 
-- 필수 기능을 모두 구현한 후에도 다양한 추가 기능을 고심한 것
+- 지난 프로젝트 때 느꼈던 아쉬웠던 점을 개선하고자 노력한 것
 
-- 코드와 사이트를 더 나은 방향으로 발전시키기 위해 수정을 거듭한 것
+  - 트러블 슈팅 과정, 새롭게 알게 된 지식들을 많이 기록함
 
 - 해결되지 않는 부분은 팀원과 튜터님께 공유하여 빠르게 해결한 것
 
@@ -188,15 +93,16 @@ function App() {
 
 ### Problem (아쉬웠던 점)
 
-- 추가하고 싶었던 기능들을 모두 구현하지는 못한 점
-- 코드를 간결하게 작성하지 못한 점
+- context API 사용 시 구조분해할당으로 더 간결하게 작성하지 못한 점
 
-- 마주했던 다양한 트러블 슈팅 과정들을 다수 기록하지 못한 점
+- context API의 Provider를 다른 파일로 분리하지 못한 점
+
+- Redux를 개념만 이해하고 내 코드에 적용하지 못한 점
 
 <br>
 
 ### Try (Problem 해결 방법, 앞으로의 다짐 등)
 
-- 기한 내에 구현하지 못했던 선택 사항들을 리팩토링 해보기
+- 구조분해할당 많이 연습하기
 
-- 트러블 슈팅을 블로그에 보다 상세하게 작성하기
+- 이번 과제의 전체적인 로직과 새롭게 배운 지식들 복기하기
